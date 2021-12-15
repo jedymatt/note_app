@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: StreamBuilder(
-        stream: context.read<NoteService>().notes(context.read<User>()),
+        stream: NoteService(user: context.read<User>()).notes,
         initialData: const <Note>[],
         builder: (context, AsyncSnapshot<List<Note>> snapshot) {
           if (snapshot.hasError) {

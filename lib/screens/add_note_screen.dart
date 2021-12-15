@@ -43,8 +43,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                   body: _contentController.text,
                 );
 
-                Provider.of<NoteService>(context, listen: false)
-                    .addNote(context.read<User>(), note);
+                NoteService(user: context.read<User>()).addNote(note);
 
                 Navigator.pop(context);
               },

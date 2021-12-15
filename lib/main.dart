@@ -5,7 +5,6 @@ import 'package:note_app/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import 'app.dart';
-import 'services/note_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +22,6 @@ void main() async {
         StreamProvider.value(
           value: AuthService().user,
           initialData: null,
-        ),
-        Provider(
-          create: (context) => NoteService(),
         ),
       ],
       child: const App(),

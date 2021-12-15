@@ -43,9 +43,10 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              context
-                  .read<NoteService>()
-                  .removeNote(context.read<User>(), widget.note);
+              NoteService(user: context.read<User>()).removeNote(widget.note);
+              // context
+              //     .read<NoteService>()
+              //     .removeNote(context.read<User>(), widget.note);
               Navigator.pop(context);
             },
             icon: const Icon(Icons.delete),
@@ -111,9 +112,10 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                   title: _title.text,
                   body: _body.text,
                 );
-                context
-                    .read<NoteService>()
-                    .updateNote(context.read<User>(), updatedNote);
+                NoteService(user: context.read<User>()).updateNote(updatedNote);
+                // context
+                //     .read<NoteService>()
+                //     .updateNote(context.read<User>(), updatedNote);
 
                 final snackBar = SnackBar(
                   content: const Text('Note updated!'),
