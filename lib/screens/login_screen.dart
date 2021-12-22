@@ -17,8 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: ElevatedButton(
           child: const Text('Sign in'),
           onPressed: () async {
-            final message =
-                await context.read<AuthService>().signInAnonymously();
+            final message = await AuthService().signInAnonymously();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(message),

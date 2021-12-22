@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () async {
-              final message = await context.read<AuthService>().signOut();
+              final message = await AuthService().signOut();
               // final message = await AuthService().signOut();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
